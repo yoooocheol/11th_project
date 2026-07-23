@@ -33,7 +33,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score
 
 data_model = DecisionTreeClassifier(random_state=42)
-data_parameters = {'criterion':['gini','entropy'], 'max_depth':[2,5], 'min_samples_split':[2,10],'min_samples_leaf':[1,2,4]}
+data_parameters = {'criterion':['gini','entropy'], 'max_depth':[2,3,4,5], 'min_samples_split':[2,10],'min_samples_leaf':[1,2,4]}
 data_grid = GridSearchCV(estimator= data_model, param_grid= data_parameters, scoring = 'accuracy', cv = 5)
 data_grid.fit(X_train, y_train)
 print('Best Hyper-parameter', data_grid.best_params_)
